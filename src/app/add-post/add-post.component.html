@@ -1,0 +1,31 @@
+<div class="container">
+    <form #taskForm="ngForm">
+        <div class="form-group">
+            <label for="userId">User Id</label><br>
+            <input type="number" name="userId" id="userId" class="form-control" [(ngModel)]="taskForm.value.userId" required>
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="id">Id</label><br>
+            <input type="number" name="id" id="id" class="form-control" [(ngModel)]="taskForm.value.id" required>
+
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="title">Title</label><br>
+            <input type="text" name="title" id="title" class="form-control" [(ngModel)]="taskForm.value.title" required>
+
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="body">Body</label><br>
+            <input type="text" name="body" id="body" class="form-control" [(ngModel)]="taskForm.value.body" required>
+
+        </div>
+        <pre></pre>
+        <button class="btn btn-primary" type="submit" (click)="onSubmit(taskForm)">Submit</button>
+
+
+
+</form>
+</div>

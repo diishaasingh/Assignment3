@@ -1,0 +1,38 @@
+<div class="posts-container">
+  <!-- <app-add-post ></app-add-post> -->
+  <app-add-post (newPostCreated)="onNewPostCreated($event)"></app-add-post>
+  <h2>Recent Posts</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User ID</th>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Edit</th> 
+        <th>Get Comments</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of posts" class="post-item">
+        <td>{{ post.id }}</td>
+        <td>{{ post.userId }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.body }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="editPost(post)">Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="getComments(post)">Comments</button>
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deletePost(post)" >Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-details [postSelected]="postSelected" class="comments"></app-details>
+</div>
+
