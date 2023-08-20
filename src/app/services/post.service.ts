@@ -22,11 +22,7 @@ export class PostService {
   }
 
   createPost(post: Post) {
-    return this.httpClient.post<Post>(this.url, post);
+    return this.httpClient.post<Post>('https://jsonplaceholder.typicode.com/posts', post);
   }
 
-  // updatePost(post: Post): Observable<Post> {
-  //   const url = `${this.url}/${post.id}`;
-  //   return this.httpClient.put<Post>(url, post);
-  // }
 }

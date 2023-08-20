@@ -8,9 +8,7 @@ import { Observable } from 'rxjs';
 ) 
 export class ApiService { 
 
-constructor( 
-private http: HttpClient 
-) { } 
+constructor( private http: HttpClient ) { } 
 
 // public get(url: string, options?: any) { 
 // return this.http.get(url, options); 

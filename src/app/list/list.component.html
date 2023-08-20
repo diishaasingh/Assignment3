@@ -1,8 +1,8 @@
 <div class="posts-container">
   <!-- <app-add-post ></app-add-post> -->
-  <app-add-post (newPostCreated)="onNewPostCreated($event)"></app-add-post>
-  <h2>Recent Posts</h2>
-
+  <app-add-post (newPostCreated)="onNewPostCreated($event)" [editingPost]="editingPost" (postUpdated)="updatePost($event)"></app-add-post>
+  <h2>All Posts</h2>
+  
   <table class="table">
     <thead>
       <tr>
@@ -31,6 +31,7 @@
           <button class="btn btn-danger btn-sm" (click)="deletePost(post)" >Delete</button>
         </td>
       </tr>
+
     </tbody>
   </table>
   <app-details [postSelected]="postSelected" class="comments"></app-details>

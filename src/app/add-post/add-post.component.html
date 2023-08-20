@@ -1,6 +1,7 @@
 <div class="container">
+    <h2>New Post</h2>
     <form #taskForm="ngForm">
-        <div class="form-group">
+         <div class="form-group">
             <label for="userId">User Id</label><br>
             <input type="number" name="userId" id="userId" class="form-control" [(ngModel)]="taskForm.value.userId" required>
         </div>
@@ -23,9 +24,9 @@
 
         </div>
         <pre></pre>
-        <button class="btn btn-primary" type="submit" (click)="onSubmit(taskForm)">Submit</button>
+        <button class="btn btn-primary" type="submit" (click)="onSubmit(taskForm)">Add post</button>
+        <pre></pre>
+        <button class="btn btn-primary" type="submit" (click)="onSubmitToUpdatePost(taskForm)">Edit & Save</button>
 
-
-
-</form>
+    </form>
 </div>

@@ -15,19 +15,19 @@ export class ListComponent {
 
   constructor(private postService: PostService) { }
 
-  editingPostId: number | null = null; 
+  editingPost: Post | null = null; 
 
   editPost(post: Post) {
-    this.editingPostId = post.id;
+    this.editingPost = { ...post };
   }
 
-  saveEditedPost(updatedPost: Post) {
-    const index = this.posts.findIndex(post => post.id === updatedPost.id);
-    
-    if (index !== -1) {
-      this.posts[index] = updatedPost;
-      this.editingPostId = null;
-
+  updatePost(updatedPost: Post) {
+    if (this.editingPost) {
+      const index = this.posts.findIndex(post => post.id === this.editingPost!.id);
+      if (index !== -1) {
+        this.posts[index] = updatedPost;
+        this.editingPost = null;
+      }
     }
   }
 
