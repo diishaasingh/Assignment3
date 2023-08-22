@@ -1,32 +1,30 @@
 <div class="container">
     <h2>New Post</h2>
-    <form #taskForm="ngForm">
-         <div class="form-group">
-            <label for="userId">User Id</label><br>
-            <input type="number" name="userId" id="userId" class="form-control" [(ngModel)]="taskForm.value.userId" required>
-        </div>
-        <pre></pre>
-        <div class="form-group">
-            <label for="id">Id</label><br>
-            <input type="number" name="id" id="id" class="form-control" [(ngModel)]="taskForm.value.id" required>
-
-        </div>
-        <pre></pre>
-        <div class="form-group">
-            <label for="title">Title</label><br>
-            <input type="text" name="title" id="title" class="form-control" [(ngModel)]="taskForm.value.title" required>
-
-        </div>
-        <pre></pre>
-        <div class="form-group">
-            <label for="body">Body</label><br>
-            <input type="text" name="body" id="body" class="form-control" [(ngModel)]="taskForm.value.body" required>
-
-        </div>
-        <pre></pre>
-        <button class="btn btn-primary" type="submit" (click)="onSubmit(taskForm)">Add post</button>
-        <pre></pre>
-        <button class="btn btn-primary" type="submit" (click)="onSubmitToUpdatePost(taskForm)">Edit & Save</button>
-
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="userId">User Id</label><br>
+        <input type="number" formControlName="userId" id="userId" class="form-control" required>
+      </div>
+      <pre></pre>
+      <div class="form-group">
+        <label for="id">Id</label><br>
+        <input type="number" formControlName="id" id="id" class="form-control" required>
+      </div>
+      <pre></pre>
+      <div class="form-group">
+        <label for="title">Title</label><br>
+        <input type="text" formControlName="title" id="title" class="form-control" required>
+      </div>
+      <pre></pre>
+      <div class="form-group">
+        <label for="body">Body</label><br>
+        <input type="text" formControlName="body" id="body" class="form-control" required>
+      </div>
+      <pre></pre>
+      <button class="btn btn-primary" type="submit">Add post</button>
+      <pre></pre>
+      <button class="btn btn-primary" type="button" (click)="onSubmitToUpdatePost()">Edit & Save</button>
     </form>
-</div>
+  </div>
+  
+  

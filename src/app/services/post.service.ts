@@ -16,7 +16,11 @@ export class PostService {
   getPosts(): Observable<Post[]> {
     return this.httpClient.get<Post[]>(this.url);
   }
-
+  
+  get(url: string): Observable<any> {
+    return this.httpClient.get(url);
+  }
+  
   getPostById(id: number): Observable<Post> {
     return this.httpClient.get<Post>(`${this.url}/${id}`);
   }

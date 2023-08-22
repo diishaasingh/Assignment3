@@ -1,20 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { PostService } from '../services/post.service';
-import { ApiService } from '../services/api.service';
-
-interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-} 
-interface Comment{
-  postId:number;
-  id:number;
-  name:string;
-  email:string;
-  body:string;
-}
+import { Post } from '../model/post.model';
+import { Comment } from '../model/comment.model';
 
 @Component({
   selector: 'app-details',
@@ -26,10 +13,8 @@ export class DetailsComponent implements OnChanges {
   @Input() postSelected: Post | null = null;
   postId: number | null = null;
   comments: Comment[]=[];
-  http: any;
-  userId: any;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private postService: PostService) {}
 
   ngOnChanges() {
     if (this.postSelected) {
@@ -37,16 +22,13 @@ export class DetailsComponent implements OnChanges {
       this.fetchComments();
     }
   }
-
+ 
   fetchComments() {
     const url = `https://jsonplaceholder.typicode.com/posts/${this.postId}/comments`;
-    this.apiService.get(url).subscribe(comments => {
-      if (this.userId) {
-        this.comments = comments.filter((comment:Comment) => comment.postId === this.userId);
-      } else {
-        this.comments = comments;
-      }
+    this.postService.get(url).subscribe(comments => {
+        this.comments = comments;     
     });
 
   }
 }
+
